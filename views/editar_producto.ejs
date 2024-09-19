@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilo1.css">
+    <title>Editar Producto</title>
+</head>
+<body>
+    <h1>Editar Producto</h1>
+    <a href="/">Volver a la Lista de Productos</a>
+
+    <form action="/editar/<%= producto.id %>" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="<%= producto.nombre %>" required>
+        </div>
+        <div>
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" value="<%= producto.precio %>" required>
+        </div>
+        <div>
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" value="<%= producto.cantidad %>" required>
+        </div>
+        <div>
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" name="imagen">
+            <input type="hidden" name="imagenActual" value="<%= producto.imagen %>"> <!-- Campo oculto para la imagen actual -->
+        </div>
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>

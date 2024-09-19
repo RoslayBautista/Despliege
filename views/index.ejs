@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilo1.css">
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h1>Lista de Productos</h1>
+    <a href="/crear" class="btn">Crear Nuevo Producto</a>
+    <div class="servicios">
+        <h2>Nuestros Productos</h2>
+    </div>
+    <div class="container-card">
+        <% productos.forEach(producto => { %>
+            <div class="card" id="primera"> 
+                <figure>
+                    <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
+                </figure>
+                <div class="descrip-car">
+                    <h3><%= producto.nombre %></h3>
+                    <p>Precio: $<%= producto.precio %></p>
+                    <p>Cantidad disponible: <%= producto.cantidad %></p>
+                    <a href="/editar/<%= producto.id %>" class="btn-editar">Editar</a>
+                    <form action="/eliminar/<%= producto.id %>" method="POST" style="display:inline;">
+                        <button type="submit" class="eliminar">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
