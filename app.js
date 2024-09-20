@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
+const config = require('./config'); // Importa la configuración
 const multer = require('multer');
 const path = require('path');
 
@@ -7,14 +8,7 @@ const app = express();
 const PORT = 3000;
 
 // Configuración de la conexión a la base de datos
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '', // Cambia esto por tu contraseña
-    database: 'nodejs',
-    port: 3307,
-
-});
+const db = mysql.createConnection(config.dbConfig);
 
 // Conectar a la base de datos
 db.connect((err) => {
